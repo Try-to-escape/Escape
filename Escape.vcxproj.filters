@@ -18,22 +18,13 @@
     <ClInclude Include="Escape.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="EscapeDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
     <ClInclude Include="framework.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="MainFrm.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="ChildFrm.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="EscapeDoc.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="EscapeView.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Resource.h">
@@ -47,16 +38,7 @@
     <ClCompile Include="Escape.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="MainFrm.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="ChildFrm.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="EscapeDoc.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="EscapeView.cpp">
+    <ClCompile Include="EscapeDlg.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp">
@@ -74,13 +56,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\EscapeDoc.ico">
-      <Filter>리소스 파일</Filter>
-    </Image>
     <Image Include="res\Escape.ico">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="res\Toolbar.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>
