@@ -14,7 +14,7 @@
 // 이 클래스의 구현에 대해서는 Escape.cpp을(를) 참조하세요.
 //
 
-class CEscapeApp : public CWinAppEx
+class CEscapeApp : public CWinApp
 {
 public:
 	CEscapeApp() noexcept;
@@ -26,13 +26,6 @@ public:
 	virtual int ExitInstance();
 
 // 구현입니다.
-	UINT  m_nAppLook;
-	BOOL  m_bHiColorIcons;
-
-	virtual void PreLoadState();
-	virtual void LoadCustomState();
-	virtual void SaveCustomState();
-
 	afx_msg void OnAppAbout();
 	DECLARE_MESSAGE_MAP()
 };
