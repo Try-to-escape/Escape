@@ -27,4 +27,16 @@ protected:
 public:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnPaint();
+	// 암호 입력창 제어 변수
+	CString m_strEditInput;
+	// 1번 버튼
+	CButton m_btnOne;
+	CButton m_btnTwo;
+	CButton m_btnThree;
+	CButton m_btnFour;
+	CButton m_btnFive;
+	CButton m_btnSix;
+	CButton m_btnSeven;
+	CButton m_btnEight;
+	CButton m_btnNine;
 };
