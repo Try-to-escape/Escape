@@ -183,6 +183,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CStartDlg.h" />
     <ClInclude Include="Escape.h" />
     <ClInclude Include="EscapeDlg.h" />
     <ClInclude Include="framework.h" />
@@ -191,6 +192,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CStartDlg.cpp" />
     <ClCompile Include="Escape.cpp" />
     <ClCompile Include="EscapeDlg.cpp" />
     <ClCompile Include="pch.cpp">
@@ -207,6 +209,14 @@
     <None Include="res\Escape.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\..\downloads\bitmap3.bmp" />
+    <Image Include="..\..\..\Downloads\CBookListDlg.bmp" />
+    <Image Include="..\..\과제\새 폴더\CBookListDlg.bmp" />
+    <Image Include="..\..\과제\새 폴더\금고.bmp" />
+    <Image Include="..\..\과제\새 폴더\스탠드.bmp" />
+    <Image Include="..\..\과제\새 폴더\액자.bmp" />
+    <Image Include="res\bitmap1.bmp" />
+    <Image Include="res\bitmap2.bmp" />
     <Image Include="res\Escape.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

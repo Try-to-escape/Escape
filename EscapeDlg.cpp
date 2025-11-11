@@ -8,6 +8,12 @@
 #include "EscapeDlg.h"
 #include "afxdialogex.h"
 
+#include "CBookListDlg.h"
+#include "CLightDlg.h"
+#include "CLockerDlg.h"
+#include "CPictureDlg.h"
+
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -59,12 +65,17 @@ CEscapeDlg::CEscapeDlg(CWnd* pParent /*=nullptr*/)
 void CEscapeDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	//DDX_Control(pDX, IDC_BOOKLIST, m_boollist);
 }
 
 BEGIN_MESSAGE_MAP(CEscapeDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDC_BUTTON_BOOKLIST, &CEscapeDlg::OnBnClickedButtonBooklist)
+	ON_BN_CLICKED(IDC_BUTTON_PICTURE, &CEscapeDlg::OnBnClickedButtonPicture)
+	ON_BN_CLICKED(IDC_BUTTON_LOCKER, &CEscapeDlg::OnBnClickedButtonLocker)
+	ON_BN_CLICKED(IDC_BUTTON_STAND, &CEscapeDlg::OnBnClickedButtonStand)
 END_MESSAGE_MAP()
 
 
@@ -153,3 +164,32 @@ HCURSOR CEscapeDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CEscapeDlg::OnBnClickedButtonBooklist()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	CBookListDlg dlg;
+	dlg.DoModal();
+}
+
+void CEscapeDlg::OnBnClickedButtonPicture()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	CPictureDlg dlg;
+	dlg.DoModal();
+}
+
+void CEscapeDlg::OnBnClickedButtonLocker()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	CLockerDlg dlg;
+	dlg.DoModal();
+}
+
+void CEscapeDlg::OnBnClickedButtonStand()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	CLightDlg dlg;
+	dlg.DoModal();
+}

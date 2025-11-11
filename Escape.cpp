@@ -6,6 +6,7 @@
 #include "framework.h"
 #include "Escape.h"
 #include "EscapeDlg.h"
+#include "CStartDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -70,7 +71,11 @@ BOOL CEscapeApp::InitInstance()
 	// TODO: 이 문자열을 회사 또는 조직의 이름과 같은
 	// 적절한 내용으로 수정해야 합니다.
 	SetRegistryKey(_T("로컬 애플리케이션 마법사에서 생성된 애플리케이션"));
+	CStartDlg startdlg;
+	INT_PTR nResponse = startdlg.DoModal();
 
+	
+	/*
 	CEscapeDlg dlg;
 	m_pMainWnd = &dlg;
 	INT_PTR nResponse = dlg.DoModal();
@@ -88,7 +93,7 @@ BOOL CEscapeApp::InitInstance()
 	{
 		TRACE(traceAppMsg, 0, "경고: 대화 상자를 만들지 못했으므로 애플리케이션이 예기치 않게 종료됩니다.\n");
 		TRACE(traceAppMsg, 0, "경고: 대화 상자에서 MFC 컨트롤을 사용하는 경우 #define _AFX_NO_MFC_CONTROLS_IN_DIALOGS를 수행할 수 없습니다.\n");
-	}
+	}*/
 
 	// 위에서 만든 셸 관리자를 삭제합니다.
 	if (pShellManager != nullptr)
