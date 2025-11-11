@@ -43,7 +43,7 @@ void CFailDlg::OnClickedRetryButton()
 		pMain->PostMessageW(WM_CLOSE);
 	}
 	EndDialog(IDOK);
-	CStartDlg StartDlg;
+    CStartDlg startDlg;
 	startDlg.DoModal();
 }
 
