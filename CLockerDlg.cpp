@@ -42,6 +42,7 @@ void CLockerDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CLockerDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_COMMAND_RANGE(101, 109, &CLockerDlg::OnBnClickedButton)
+	ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 
@@ -115,11 +116,13 @@ void CLockerDlg::OnBnClickedButton(UINT nID)
 			m_btn7.ShowWindow(SW_HIDE);
 			m_btn8.ShowWindow(SW_HIDE);
 			m_btn9.ShowWindow(SW_HIDE);
-			// 2) 성공화면 출력(열린금고-> 시험지 클릭-> 시험지 상세 사진)
+			// 2) 열린 금고 화면, 시험지 버튼
 			m_pCurrentImage = &m_imgLockerOpen;
 			Invalidate();
+			// 3) 시험지 확대 화면, 확인 버튼(클릭시 대화상자 닫힘)
+
 		}
-		//2. 비밀번호 불일치시->실패화면
+		//2. 비밀번호 불일치시->실패화면(금고 경보-> 다시하기 대화상자)
 		else {
 			m_pCurrentImage = &m_imgLockerAlert;
 			Invalidate();
@@ -130,4 +133,17 @@ void CLockerDlg::OnBnClickedButton(UINT nID)
 		UpdateData(FALSE);
 
 	}
+}
+
+//결과화면 순차 출력용 타이머 함수
+void CLockerDlg::OnTimer(UINT_PTR nIDEvent)
+{
+	m_iCurrentImageIndex++;
+	if (m_iCurrentImageIndex >= m_vecImages.size())
+	m_iCurrentImageIndex = 0; // 반복
+
+	m_pCurrentImage = &m_vecImages[m_iCurrentImageIndex]; // 현재 이미지 포인터
+	Invalidate();
+
+	CDialogEx::OnTimer(nIDEvent);
 }
