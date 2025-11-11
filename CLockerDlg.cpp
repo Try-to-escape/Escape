@@ -42,8 +42,12 @@ BOOL CLockerDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
-	//1. 금고 이미지 불러오기
-	m_imgLocker.Load(L"res/image/locker.bmp");
+	//1. 이미지들 불러오기
+	m_imgLocker.Load(L"res/image/locker.bmp");	//기본 금고 닫힘
+	m_imgLockerOpen.Load(L"res/image/lockerOpen.bmp"); //금고 열림
+	m_imgLockerAlert.Load(L"res/image/lockerAlert.bmp"); //금고 경보
+	m_imgTestPaper.Load(L"res/image/testPaper.bmp"); //시험지
+
 	if (m_imgLocker)
 	{
 		// 이미지 크기 불러오기

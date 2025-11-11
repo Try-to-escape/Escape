@@ -9,7 +9,14 @@ class CLockerDlg : public CDialogEx
 	DECLARE_DYNAMIC(CLockerDlg)
 
 private:
+	// 기본 금고 이미지
 	CImage m_imgLocker;
+	// 암호 성공시 금고 열림 이미지
+	CImage m_imgLockerOpen;
+	// 암호 실패시 금고 경보 이미지
+	CImage m_imgLockerAlert;
+	// 시험지 상세 이미지
+	CImage m_imgTestPaper;
 
 public:
 	CLockerDlg(CWnd* pParent = nullptr);   // 표준 생성자입니다.
