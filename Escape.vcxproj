@@ -183,6 +183,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CFailDlg.h" />
     <ClInclude Include="Escape.h" />
     <ClInclude Include="EscapeDlg.h" />
     <ClInclude Include="framework.h" />
@@ -191,6 +192,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CFailDlg.cpp" />
     <ClCompile Include="Escape.cpp" />
     <ClCompile Include="EscapeDlg.cpp" />
     <ClCompile Include="pch.cpp">
