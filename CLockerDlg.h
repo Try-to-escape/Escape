@@ -35,9 +35,18 @@ public:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnPaint();
 	// 암호 입력창
-	CString m_strEditInput;
+	CEdit m_editInput;
 	//버튼 클릭시 함수
 	afx_msg void OnBnClickedButton(UINT nID);
 	// 암호 정답값
 	CString m_strPassword;
+	CButton m_btn1;
+	CButton m_btn2;
+	CButton m_btn3;
+	CButton m_btn4;
+	CButton m_btn5;
+	CButton m_btn6;
+	CButton m_btn7;
+	CButton m_btn8;
+	CButton m_btn9;
 };

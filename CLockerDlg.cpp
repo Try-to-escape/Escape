@@ -13,7 +13,6 @@ IMPLEMENT_DYNAMIC(CLockerDlg, CDialogEx)
 
 CLockerDlg::CLockerDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_LockerDlg, pParent)
-	, m_strEditInput(_T(""))
 {
 
 	m_strPassword = _T("");
@@ -26,7 +25,17 @@ CLockerDlg::~CLockerDlg()
 void CLockerDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
-	DDX_Text(pDX, IDC_EDIT_INPUT, m_strEditInput);
+	//  DDX_Text(pDX, IDC_EDIT_INPUT, m_strEditInput);
+	DDX_Control(pDX, 101, m_btn1);
+	DDX_Control(pDX, 102, m_btn2);
+	DDX_Control(pDX, 103, m_btn3);
+	DDX_Control(pDX, 104, m_btn4);
+	DDX_Control(pDX, 105, m_btn5);
+	DDX_Control(pDX, 106, m_btn6);
+	DDX_Control(pDX, 107, m_btn7);
+	DDX_Control(pDX, 108, m_btn8);
+	DDX_Control(pDX, 109, m_btn9);
+	DDX_Control(pDX, IDC_EDIT_INPUT, m_editInput);
 }
 
 
@@ -97,22 +106,36 @@ void CLockerDlg::OnBnClickedButton(UINT nID)
 	CString strBtnText;
 	pBtn->GetWindowText(strBtnText);
 
-	// Edit Box 값에 누적
-	UpdateData(TRUE);         
-	m_strEditInput += strBtnText;
-	UpdateData(FALSE);
+	// Edit Box 값에 누적 추가
+	CString strInput;
+	m_editInput.GetWindowText(strInput);
+	strInput += strBtnText;
+	m_editInput.SetWindowText(strInput);
 
 	// 4자리 입력 시 동작
-	if (m_strEditInput.GetLength() == 4)
+	if (strInput.GetLength() == 4)
 	{
 		//1. 비밀번호 일치시->성공화면
-		if (m_strEditInput == m_strPassword)
+		if (strInput == m_strPassword)
 			AfxMessageBox(_T("비밀번호 일치!"));
 		//2. 비밀번호 불일치시->실패화면
 		else
 			AfxMessageBox(_T("비밀번호 틀림!"));
 
-		m_strEditInput.Empty();
+		m_editInput.SetWindowText(_T(""));
+		strInput.Empty();
 		UpdateData(FALSE);
+
+		//3. 컨트롤 숨기기
+		m_editInput.ShowWindow(SW_HIDE);
+		m_btn1.ShowWindow(SW_HIDE);
+		m_btn2.ShowWindow(SW_HIDE);
+		m_btn3.ShowWindow(SW_HIDE);
+		m_btn4.ShowWindow(SW_HIDE);
+		m_btn5.ShowWindow(SW_HIDE);
+		m_btn6.ShowWindow(SW_HIDE);
+		m_btn7.ShowWindow(SW_HIDE);
+		m_btn8.ShowWindow(SW_HIDE);
+		m_btn9.ShowWindow(SW_HIDE);
 	}
 }
