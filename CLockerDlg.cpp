@@ -16,6 +16,7 @@ CLockerDlg::CLockerDlg(CWnd* pParent /*=nullptr*/)
 	, m_strEditInput(_T(""))
 {
 
+	m_strPassword = _T("");
 }
 
 CLockerDlg::~CLockerDlg()
@@ -26,20 +27,12 @@ void CLockerDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_EDIT_INPUT, m_strEditInput);
-	DDX_Control(pDX, IDC_BUTTON_ONE, m_btnOne);
-	DDX_Control(pDX, IDC_BUTTON_TWO, m_btnTwo);
-	DDX_Control(pDX, IDC_BUTTON_THREE, m_btnThree);
-	DDX_Control(pDX, IDC_BUTTON_FOUR, m_btnFour);
-	DDX_Control(pDX, IDC_BUTTON_FIVE, m_btnFive);
-	DDX_Control(pDX, IDC_BUTTON_SIX, m_btnSix);
-	DDX_Control(pDX, IDC_BUTTON_SEVEN, m_btnSeven);
-	DDX_Control(pDX, IDC_BUTTON_EIGHT, m_btnEight);
-	DDX_Control(pDX, IDC_BUTTON_NINE, m_btnNine);
 }
 
 
 BEGIN_MESSAGE_MAP(CLockerDlg, CDialogEx)
 	ON_WM_PAINT()
+	ON_COMMAND_RANGE(101, 109, &CLockerDlg::OnBnClickedButton)
 END_MESSAGE_MAP()
 
 
@@ -49,6 +42,7 @@ BOOL CLockerDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
+	//1. 금고 이미지 불러오기
 	m_imgLocker.Load(L"res/locker.bmp");
 	if (m_imgLocker)
 	{
@@ -69,6 +63,9 @@ BOOL CLockerDlg::OnInitDialog()
 	}
 	Invalidate();
 
+	//2. 암호 정답 설정
+	m_strPassword = "7456";
+
 	return TRUE;
 	
 }
@@ -83,4 +80,35 @@ void CLockerDlg::OnPaint()
 		m_imgLocker.Draw(dc, 0, 0);
 	}
 
+}
+
+//암호 버튼 클릭시 
+void CLockerDlg::OnBnClickedButton(UINT nID)
+{
+	// 버튼 컨트롤 가져오기
+	CButton* pBtn = (CButton*)GetDlgItem(nID);
+	if (!pBtn) return;
+
+	// 버튼 텍스트 읽기
+	CString strBtnText;
+	pBtn->GetWindowText(strBtnText);
+
+	// Edit Box 값에 누적
+	UpdateData(TRUE);         
+	m_strEditInput += strBtnText;
+	UpdateData(FALSE);
+
+	// 4자리 입력 시 동작
+	if (m_strEditInput.GetLength() == 4)
+	{
+		//1. 비밀번호 일치시->성공화면
+		if (m_strEditInput == m_strPassword)
+			AfxMessageBox(_T("비밀번호 일치!"));
+		//2. 비밀번호 불일치시->실패화면
+		else
+			AfxMessageBox(_T("비밀번호 틀림!"));
+
+		m_strEditInput.Empty();
+		UpdateData(FALSE);
+	}
 }

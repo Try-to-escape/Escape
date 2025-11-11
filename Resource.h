@@ -12,23 +12,15 @@
 #define IDC_EDIT1                       1000
 #define IDC_EDIT_INPUT                  1000
 #define IDC_BUTTON1                     1001
-#define IDC_BUTTON_ONE                  1001
 #define IDC_BUTTON2                     1002
-#define IDC_BUTTON_TWO                  1002
 #define IDC_BUTTON3                     1003
-#define IDC_BUTTON_THREE                1003
 #define IDC_BUTTON4                     1004
-#define IDC_BUTTON_SIX                  1004
 #define IDC_BUTTON5                     1005
-#define IDC_BUTTON_FOUR                 1005
 #define IDC_BUTTON6                     1006
-#define IDC_BUTTON_FIVE                 1006
 #define IDC_BUTTON7                     1007
 #define IDC_BUTTON_NINE                 1007
 #define IDC_BUTTON8                     1008
-#define IDC_BUTTON_EIGHT                1008
 #define IDC_BUTTON9                     1009
-#define IDC_BUTTON_SEVEN                1009
 
 // Next default values for new objects
 // 
