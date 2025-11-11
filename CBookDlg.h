@@ -21,4 +21,7 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 지원입니다.
 
 	DECLARE_MESSAGE_MAP()
+public:
+	int m_nBookType; // 0 = FBook, 1 = WBook
+	virtual BOOL OnInitDialog();
 };

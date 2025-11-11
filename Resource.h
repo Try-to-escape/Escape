@@ -8,7 +8,6 @@
 #define IDD_ESCAPE_DIALOG               102
 #define IDR_MAINFRAME                   128
 #define IDD_DIALOG_BOOKLIST             129
-#define IDD_DIALOG1                     130
 #define IDD_DIALOG_BOOK                 130
 #define IDC_BUTTON_FBOOK                1000
 #define IDC_BUTTON_WBOOK                1001
