@@ -7,12 +7,12 @@
 #include "Escape.h"
 #include "EscapeDlg.h"
 #include "afxdialogex.h"
-
+/*
 #include "CBookListDlg.h"
 #include "CLightDlg.h"
 #include "CLockerDlg.h"
 #include "CPictureDlg.h"
-
+*/
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -165,7 +165,7 @@ HCURSOR CEscapeDlg::OnQueryDragIcon()
 }
 
 
-
+/*
 void CEscapeDlg::OnBnClickedButtonBooklist()
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
@@ -193,3 +193,4 @@ void CEscapeDlg::OnBnClickedButtonStand()
 	CLightDlg dlg;
 	dlg.DoModal();
 }
+*/
