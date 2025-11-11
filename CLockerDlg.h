@@ -49,4 +49,7 @@ public:
 	CButton m_btn7;
 	CButton m_btn8;
 	CButton m_btn9;
+private:
+	// 현제 화면에 출력할 이미지 포인터
+	CImage* m_pCurrentImage;
 };

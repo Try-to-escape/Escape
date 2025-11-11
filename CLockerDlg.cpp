@@ -57,23 +57,7 @@ BOOL CLockerDlg::OnInitDialog()
 	m_imgLockerAlert.Load(L"res/image/lockerAlert.bmp"); //금고 경보
 	m_imgTestPaper.Load(L"res/image/testPaper.bmp"); //시험지
 
-	if (m_imgLocker)
-	{
-		// 이미지 크기 불러오기
-		int imgWidth = m_imgLocker.GetWidth();
-		int imgHeight = m_imgLocker.GetHeight();
-
-		// 현재 윈도우 크기와 클라이언트 영역 크기 가져오기
-		CRect rcWnd, rcClient;
-		GetWindowRect(&rcWnd);
-		GetClientRect(&rcClient);
-
-		int frameWidth = (rcWnd.Width() - rcClient.Width());
-		int frameHeight = (rcWnd.Height() - rcClient.Height());
-
-		// 이미지 크기에 맞춰 대화상자 크기 조정
-		MoveWindow(rcWnd.left, rcWnd.top, imgWidth + frameWidth, imgHeight + frameHeight);
-	}
+	m_pCurrentImage = &m_imgLocker;
 	Invalidate();
 
 	//2. 암호 정답 설정
@@ -89,8 +73,9 @@ void CLockerDlg::OnPaint()
 	CPaintDC dc(this);
 
 	//금고 이미지 출력
-	if (m_imgLocker) {
-		m_imgLocker.Draw(dc, 0, 0);
+	if (m_pCurrentImage && !m_pCurrentImage->IsNull())
+	{
+		m_pCurrentImage->Draw(dc, 0, 0);
 	}
 
 }
@@ -106,7 +91,7 @@ void CLockerDlg::OnBnClickedButton(UINT nID)
 	CString strBtnText;
 	pBtn->GetWindowText(strBtnText);
 
-	// Edit Box 값에 누적 추가
+	// Edit Box 값에 버튼 클릭값 추가
 	CString strInput;
 	m_editInput.GetWindowText(strInput);
 	strInput += strBtnText;
@@ -116,26 +101,32 @@ void CLockerDlg::OnBnClickedButton(UINT nID)
 	if (strInput.GetLength() == 4)
 	{
 		//1. 비밀번호 일치시->성공화면
-		if (strInput == m_strPassword)
-			AfxMessageBox(_T("비밀번호 일치!"));
+		if (strInput == m_strPassword) {
+
+			// 1) 컨트롤들 제거
+			m_editInput.ShowWindow(SW_HIDE);
+			m_btn1.ShowWindow(SW_HIDE);
+			m_btn2.ShowWindow(SW_HIDE);
+			m_btn3.ShowWindow(SW_HIDE);
+			m_btn4.ShowWindow(SW_HIDE);
+			m_btn5.ShowWindow(SW_HIDE);
+			m_btn6.ShowWindow(SW_HIDE);
+			m_btn7.ShowWindow(SW_HIDE);
+			m_btn8.ShowWindow(SW_HIDE);
+			m_btn9.ShowWindow(SW_HIDE);
+			// 2) 성공화면 출력(열린금고-> 시험지 클릭-> 시험지 상세 사진)
+
+		}
 		//2. 비밀번호 불일치시->실패화면
-		else
+		else {
+			// 1) 금고 경보 울리는 사진으로 변경
+			// 2) 모달창 닫히고 실패 대화상자 출력
 			AfxMessageBox(_T("비밀번호 틀림!"));
+		}
 
 		m_editInput.SetWindowText(_T(""));
 		strInput.Empty();
 		UpdateData(FALSE);
 
-		//3. 컨트롤 숨기기
-		m_editInput.ShowWindow(SW_HIDE);
-		m_btn1.ShowWindow(SW_HIDE);
-		m_btn2.ShowWindow(SW_HIDE);
-		m_btn3.ShowWindow(SW_HIDE);
-		m_btn4.ShowWindow(SW_HIDE);
-		m_btn5.ShowWindow(SW_HIDE);
-		m_btn6.ShowWindow(SW_HIDE);
-		m_btn7.ShowWindow(SW_HIDE);
-		m_btn8.ShowWindow(SW_HIDE);
-		m_btn9.ShowWindow(SW_HIDE);
 	}
 }
