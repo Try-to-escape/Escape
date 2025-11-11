@@ -57,11 +57,12 @@ BOOL CLockerDlg::OnInitDialog()
 	m_imgLockerAlert.Load(L"res/image/lockerAlert.bmp"); //금고 경보
 	m_imgTestPaper.Load(L"res/image/testPaper.bmp"); //시험지
 
+	//2. 초기 화면 설정(닫힌 금고)
 	m_pCurrentImage = &m_imgLocker;
 	Invalidate();
 
-	//2. 암호 정답 설정
-	m_strPassword = "7456";
+	//3. 암호 정답 설정
+	m_strPassword = "1234";
 
 	return TRUE;
 	
@@ -115,13 +116,13 @@ void CLockerDlg::OnBnClickedButton(UINT nID)
 			m_btn8.ShowWindow(SW_HIDE);
 			m_btn9.ShowWindow(SW_HIDE);
 			// 2) 성공화면 출력(열린금고-> 시험지 클릭-> 시험지 상세 사진)
-
+			m_pCurrentImage = &m_imgLockerOpen;
+			Invalidate();
 		}
 		//2. 비밀번호 불일치시->실패화면
 		else {
-			// 1) 금고 경보 울리는 사진으로 변경
-			// 2) 모달창 닫히고 실패 대화상자 출력
-			AfxMessageBox(_T("비밀번호 틀림!"));
+			m_pCurrentImage = &m_imgLockerAlert;
+			Invalidate();
 		}
 
 		m_editInput.SetWindowText(_T(""));
