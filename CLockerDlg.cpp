@@ -36,7 +36,7 @@ void CLockerDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, 108, m_btn8);
 	DDX_Control(pDX, 109, m_btn9);
 	DDX_Control(pDX, IDC_EDIT_INPUT, m_editInput);
-	DDX_Control(pDX, IDC_BUTTON_TESTPAPER, m_btnTestPaper);
+	DDX_Control(pDX, IDC_BUTTON_OK, n_btnOk);
 }
 
 
@@ -44,6 +44,7 @@ BEGIN_MESSAGE_MAP(CLockerDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_COMMAND_RANGE(101, 109, &CLockerDlg::OnBnClickedButton)
 //	ON_WM_TIMER()
+ON_BN_CLICKED(IDC_BUTTON1, &CLockerDlg::OnBnClickedButton1)
 END_MESSAGE_MAP()
 
 
@@ -117,10 +118,10 @@ void CLockerDlg::OnBnClickedButton(UINT nID)
 			m_btn7.ShowWindow(SW_HIDE);
 			m_btn8.ShowWindow(SW_HIDE);
 			m_btn9.ShowWindow(SW_HIDE);
-			// 2) 열린 금고 화면, 시험지 버튼
+			// 2) 열린 금고 화면
 			m_pCurrentImage = &m_imgLockerOpen;
 			Invalidate();
-			m_btnTestPaper.ShowWindow(SW_SHOW);
+			n_btnOk.ShowWindow(SW_SHOW);
 			// 3) 시험지 확대 화면, 확인 버튼(클릭시 대화상자 닫힘)
 		}
 		//2. 비밀번호 불일치시->실패화면(금고 경보-> 다시하기 대화상자)
@@ -134,4 +135,9 @@ void CLockerDlg::OnBnClickedButton(UINT nID)
 		UpdateData(FALSE);
 
 	}
+}
+
+void CLockerDlg::OnBnClickedButton1()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 }

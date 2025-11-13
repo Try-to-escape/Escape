@@ -53,5 +53,6 @@ private:
 	// 현제 화면에 출력할 이미지 포인터
 	CImage* m_pCurrentImage;
 public:
-	CButton m_btnTestPaper;
+	afx_msg void OnBnClickedButton1();
+	CButton n_btnOk;
 };
