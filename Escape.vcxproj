@@ -183,6 +183,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CHintDlg.h" />
     <ClInclude Include="CLockerDlg.h" />
     <ClInclude Include="Escape.h" />
     <ClInclude Include="EscapeDlg.h" />
@@ -192,6 +193,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CHintDlg.cpp" />
     <ClCompile Include="CLockerDlg.cpp" />
     <ClCompile Include="Escape.cpp" />
     <ClCompile Include="EscapeDlg.cpp" />

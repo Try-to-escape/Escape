@@ -31,4 +31,6 @@ public:
 	afx_msg void OnPaint();
 	afx_msg void OnBnClickedButtonOut();
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
+	int m_nCurrentImageIndex;
+	CImage m_imgHintFail;
 };

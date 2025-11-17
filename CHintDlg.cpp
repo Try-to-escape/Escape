@@ -78,7 +78,9 @@ void CHintDlg::OnBnClickedButtonOut()
 		EndDialog(IDOK);
 	}
 	else {
+		KillTimer(1);
 		AfxMessageBox(_T("교수님께 들켜버렸다!"), MB_OK | MB_ICONWARNING);
+		m_btnOut.ShowWindow(SW_HIDE);
 		m_pCurrentImage = &m_imgHintFail;
 		Invalidate();
 		//실패창 띄우기
@@ -90,8 +92,11 @@ void CHintDlg::OnTimer(UINT_PTR nIDEvent)
 {
 	m_nCurrentImageIndex++;
 
-	if (m_nCurrentImageIndex >= 7)
+	if (m_nCurrentImageIndex >= 7) {
+		KillTimer(1);
 		return;
+	}
+	
 
 	m_pCurrentImage = &m_imgHint[m_nCurrentImageIndex];  
 
