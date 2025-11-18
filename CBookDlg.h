@@ -23,5 +23,6 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	int m_nBookType; // 0 = FBook, 1 = WBook
+	CBitmap m_bmpImage;
 	virtual BOOL OnInitDialog();
 };

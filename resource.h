@@ -10,6 +10,11 @@
 #define IDD_DIALOG_BOOKLIST             129
 #define IDD_DIALOG_BOOK                 130
 #define IDB_BITMAP_BOOKLIST             133
+#define IDB_BITMAP_BOOK                 135
+#define IDB_BITMAP_BOOKFAKE             136
+#define IDB_BITMAP_LIGHTOFF             137
+#define IDB_BITMAP4                     138
+#define IDB_BITMAP_LIGHTON              138
 #define IDC_BUTTON_FBOOK                1000
 #define IDC_BUTTON_WBOOK                1001
 
@@ -17,7 +22,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        134
+#define _APS_NEXT_RESOURCE_VALUE        139
 #define _APS_NEXT_COMMAND_VALUE         32771
 #define _APS_NEXT_CONTROL_VALUE         1002
 #define _APS_NEXT_SYMED_VALUE           101

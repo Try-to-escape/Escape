@@ -39,7 +39,7 @@ void CBookListDlg::OnBnClickedButtonWbook()
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
     CBookDlg dlg;
-    dlg.m_nBookType = 0;
+    dlg.m_nBookType = IDB_BITMAP_BOOKFAKE;
     dlg.DoModal();
 }
 
@@ -47,6 +47,6 @@ void CBookListDlg::OnBnClickedButtonFbook()
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 	CBookDlg dlg;
-	dlg.m_nBookType = 1;
+	dlg.m_nBookType = IDB_BITMAP_BOOK;
 	dlg.DoModal();
 }

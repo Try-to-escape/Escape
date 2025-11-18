@@ -24,4 +24,5 @@ protected:
 public:
 	afx_msg void OnBnClickedButtonWbook();
 	afx_msg void OnBnClickedButtonFbook();
+	CBitmap m_bmpBackground;
 };
