@@ -22,7 +22,7 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
-	CImage m_imgHint[7];
+	CImage m_imgHint[3];
 	virtual BOOL OnInitDialog();
 	//나가기 버튼
 	CButton m_btnOut;
