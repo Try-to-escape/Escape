@@ -58,7 +58,7 @@ BOOL CLockerDlg::OnInitDialog()
 	m_imgLocker.Load(L"res/image/locker.bmp");	//기본 금고 닫힘
 	m_imgLockerOpen.Load(L"res/image/lockerOpen.bmp"); //금고 열림
 	m_imgLockerAlert.Load(L"res/image/lockerAlert.bmp"); //금고 경보
-	m_imgTestPaper.Load(L"res/image/testPaper.bmp"); //시험지
+	m_imgTestPaper.Load(L"res/image/EscapeEnding1.bmp"); //시험지
 
 	//2. 초기 화면 설정(닫힌 금고)
 	m_pCurrentImage = &m_imgLocker;

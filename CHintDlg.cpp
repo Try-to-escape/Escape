@@ -42,13 +42,9 @@ BOOL CHintDlg::OnInitDialog()
 	CDialogEx::OnInitDialog();
 
 	//1. 이미지들 불러오기
-	m_imgHint[0].Load(L"res/image/hint1.bmp");
-	m_imgHint[1].Load(L"res/image/hint2.bmp");
-	m_imgHint[2].Load(L"res/image/hint3.bmp");
-	m_imgHint[3].Load(L"res/image/hint4.bmp");
-	m_imgHint[4].Load(L"res/image/hint5.bmp");
-	m_imgHint[5].Load(L"res/image/hint6.bmp");
-	m_imgHint[6].Load(L"res/image/hint7.bmp");
+	m_imgHint[0].Load(L"res/image/EscapeMainPageAttack.bmp");
+	m_imgHint[1].Load(L"res/image/EscapeMainPageHide.bmp");
+	m_imgHint[2].Load(L"res/image/EscapeMainPageHint.bmp");
 	m_imgHintFail.Load(L"res/image/hintFail.bmp");
 
 	//2. 초기 화면 설정
@@ -57,7 +53,7 @@ BOOL CHintDlg::OnInitDialog()
 	Invalidate();
 
 	//3. 타이머 설정
-	SetTimer(1, 4000, NULL);
+	SetTimer(1, 50000, NULL);
 
 	return TRUE;  
 }
