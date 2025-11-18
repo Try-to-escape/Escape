@@ -9,7 +9,6 @@
 #define IDR_MAINFRAME                   128
 #define IDD_DIALOG1                     129
 #define IDD_LockerDlg                   129
-#define IDD_DIALOG_HINT                 133
 #define IDD_HintDlg                     133
 #define IDC_EDIT1                       1000
 #define IDC_EDIT_INPUT                  1000
