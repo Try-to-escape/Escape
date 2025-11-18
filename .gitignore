@@ -26,3 +26,6 @@ Win32/
 *.sbr
 *.bsc
 /Escape.aps
+/Escape.vcxproj
+/Escape.vcxproj.filters
+/Escape.rc
