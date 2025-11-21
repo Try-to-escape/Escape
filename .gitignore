@@ -25,3 +25,4 @@ Win32/
 *.ncb
 *.sbr
 *.bsc
+/Escape.aps
