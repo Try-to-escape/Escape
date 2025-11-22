@@ -183,6 +183,9 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CBookDlg.h" />
+    <ClInclude Include="CBookListDlg.h" />
+    <ClInclude Include="CLightDlg.h" />
     <ClInclude Include="CLockerDlg.h" />
     <ClInclude Include="Escape.h" />
     <ClInclude Include="EscapeDlg.h" />
@@ -192,6 +195,9 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CBookDlg.cpp" />
+    <ClCompile Include="CBookListDlg.cpp" />
+    <ClCompile Include="CLightDlg.cpp" />
     <ClCompile Include="CLockerDlg.cpp" />
     <ClCompile Include="Escape.cpp" />
     <ClCompile Include="EscapeDlg.cpp" />
