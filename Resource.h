@@ -9,18 +9,21 @@
 #define IDR_MAINFRAME                   128
 #define IDD_DIALOG_BOOK                 129
 #define IDD_DIALOG_BOOKLIST             130
+#define IDD_DIALOG_Light                134
+#define IDD_DIALOG_LIGHT                134
 #define IDC_BUTTON_WBOOK                1000
 #define IDC_BUTTON_FBOOK                1001
 #define IDC_BUTTON_GO_BOOKLIST          1002
-#define IDC_TAB1                        1004
+#define IDC_BUTTON1                     1005
+#define IDC_BUTTON_LIGHT                1005
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        134
+#define _APS_NEXT_RESOURCE_VALUE        136
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1005
+#define _APS_NEXT_CONTROL_VALUE         1006
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
