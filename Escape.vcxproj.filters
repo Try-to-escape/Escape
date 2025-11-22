@@ -42,6 +42,9 @@
     <ClInclude Include="CLightDlg.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="CLockerDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Escape.cpp">
@@ -62,6 +65,9 @@
     <ClCompile Include="CLightDlg.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="CLockerDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Escape.rc">
@@ -75,6 +81,9 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\Escape.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\locker.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>

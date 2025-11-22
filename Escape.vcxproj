@@ -186,6 +186,7 @@
     <ClInclude Include="CBookDlg.h" />
     <ClInclude Include="CBookListDlg.h" />
     <ClInclude Include="CLightDlg.h" />
+    <ClInclude Include="CLockerDlg.h" />
     <ClInclude Include="Escape.h" />
     <ClInclude Include="EscapeDlg.h" />
     <ClInclude Include="framework.h" />
@@ -197,6 +198,7 @@
     <ClCompile Include="CBookDlg.cpp" />
     <ClCompile Include="CBookListDlg.cpp" />
     <ClCompile Include="CLightDlg.cpp" />
+    <ClCompile Include="CLockerDlg.cpp" />
     <ClCompile Include="Escape.cpp" />
     <ClCompile Include="EscapeDlg.cpp" />
     <ClCompile Include="pch.cpp">
@@ -213,6 +215,7 @@
     <None Include="res\Escape.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\locker.bmp" />
     <Image Include="res\Escape.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
