@@ -7,8 +7,6 @@
 #include "Escape.h"
 #include "EscapeDlg.h"
 #include "afxdialogex.h"
-#include "CLightDlg.h"
-#include "CBookListDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -22,26 +20,24 @@ class CAboutDlg : public CDialogEx
 public:
 	CAboutDlg();
 
-// 대화 상자 데이터입니다.
+	// 대화 상자 데이터입니다.
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_ABOUTBOX };
 #endif
 
-	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 지원입니다.
+protected:
+	virtual void DoDataExchange(CDataExchange *pDX);    // DDX/DDV 지원입니다.
 
-// 구현입니다.
+	// 구현입니다.
 protected:
 	DECLARE_MESSAGE_MAP()
-public:
-//	virtual BOOL OnInitDialog();
 };
 
 CAboutDlg::CAboutDlg() : CDialogEx(IDD_ABOUTBOX)
 {
 }
 
-void CAboutDlg::DoDataExchange(CDataExchange* pDX)
+void CAboutDlg::DoDataExchange(CDataExchange *pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
 }
@@ -54,13 +50,13 @@ END_MESSAGE_MAP()
 
 
 
-CEscapeDlg::CEscapeDlg(CWnd* pParent /*=nullptr*/)
+CEscapeDlg::CEscapeDlg(CWnd *pParent /*=nullptr*/)
 	: CDialogEx(IDD_ESCAPE_DIALOG, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
-void CEscapeDlg::DoDataExchange(CDataExchange* pDX)
+void CEscapeDlg::DoDataExchange(CDataExchange *pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
 }
@@ -69,7 +65,6 @@ BEGIN_MESSAGE_MAP(CEscapeDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_BN_CLICKED(IDC_BUTTON_GO_BOOKLIST, &CEscapeDlg::OnClickedButtonGoBooklist)
 END_MESSAGE_MAP()
 
 
@@ -85,14 +80,14 @@ BOOL CEscapeDlg::OnInitDialog()
 	ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
 	ASSERT(IDM_ABOUTBOX < 0xF000);
 
-	CMenu* pSysMenu = GetSystemMenu(FALSE);
-	if (pSysMenu != nullptr)
+	CMenu *pSysMenu = GetSystemMenu(FALSE);
+	if ( pSysMenu != nullptr )
 	{
 		BOOL bNameValid;
 		CString strAboutMenu;
 		bNameValid = strAboutMenu.LoadString(IDS_ABOUTBOX);
 		ASSERT(bNameValid);
-		if (!strAboutMenu.IsEmpty())
+		if ( !strAboutMenu.IsEmpty() )
 		{
 			pSysMenu->AppendMenu(MF_SEPARATOR);
 			pSysMenu->AppendMenu(MF_STRING, IDM_ABOUTBOX, strAboutMenu);
@@ -111,7 +106,7 @@ BOOL CEscapeDlg::OnInitDialog()
 
 void CEscapeDlg::OnSysCommand(UINT nID, LPARAM lParam)
 {
-	if ((nID & 0xFFF0) == IDM_ABOUTBOX)
+	if ( (nID & 0xFFF0) == IDM_ABOUTBOX )
 	{
 		CAboutDlg dlgAbout;
 		dlgAbout.DoModal();
@@ -128,7 +123,7 @@ void CEscapeDlg::OnSysCommand(UINT nID, LPARAM lParam)
 
 void CEscapeDlg::OnPaint()
 {
-	if (IsIconic())
+	if ( IsIconic() )
 	{
 		CPaintDC dc(this); // 그리기를 위한 디바이스 컨텍스트입니다.
 
@@ -156,10 +151,4 @@ void CEscapeDlg::OnPaint()
 HCURSOR CEscapeDlg::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
-}
-void CEscapeDlg::OnClickedButtonGoBooklist()
-{
-	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
-	CLightDlg dlg;
-	dlg.DoModal();
 }

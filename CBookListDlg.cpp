@@ -60,7 +60,7 @@ BOOL CBookListDlg::OnInitDialog()
 	CDialogEx::OnInitDialog();
 
 	// TODO:  여기에 추가 초기화 작업을 추가합니다.
-	m_imgBg.Load(L"res/img/EscapeBookList.bmp");
+	m_imgBg.Load(L"res/image/EscapeBookList.bmp");
 
 	int nWidth = 1026;
 	int nHeight = 770;

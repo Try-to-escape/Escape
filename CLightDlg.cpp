@@ -44,8 +44,8 @@ BOOL CLightDlg::OnInitDialog()
 	m_bLightOn = FALSE;
 
 	// TODO:  여기에 추가 초기화 작업을 추가합니다.
-	m_imgLightOff.Load(L"res/img/EscapeLightOff.bmp");
-	m_imgLightOn.Load(L"res/img/EscapeLightOn.bmp");
+	m_imgLightOff.Load(L"res/image/EscapeLightOff.bmp");
+	m_imgLightOn.Load(L"res/image/EscapeLightOn.bmp");
 	int nWidth = 1026;
 	int nHeight = 770;
 

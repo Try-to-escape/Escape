@@ -40,8 +40,8 @@ BOOL CBookDlg::OnInitDialog()
 	CDialogEx::OnInitDialog();
 
 	// TODO:  여기에 추가 초기화 작업을 추가합니다.
-	m_imgFBook.Load(L"res/img/EscapeBook.bmp");
-	m_imgWBook.Load(L"res/img/EscapeBookFake.bmp");
+	m_imgFBook.Load(L"res/image/EscapeBook.bmp");
+	m_imgWBook.Load(L"res/image/EscapeBookFake.bmp");
 
 	if(m_nBookType == 0 )
 		m_pBookImage = &m_imgFBook;
