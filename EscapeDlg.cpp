@@ -7,6 +7,7 @@
 #include "Escape.h"
 #include "EscapeDlg.h"
 #include "afxdialogex.h"
+#include "CPictureDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -72,6 +73,9 @@ END_MESSAGE_MAP()
 
 BOOL CEscapeDlg::OnInitDialog()
 {
+	CPictureDlg dlg;
+	dlg.DoModal();
+
 	CDialogEx::OnInitDialog();
 
 	// 시스템 메뉴에 "정보..." 메뉴 항목을 추가합니다.

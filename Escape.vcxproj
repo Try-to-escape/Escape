@@ -183,6 +183,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CPictureDlg.h" />
     <ClInclude Include="Escape.h" />
     <ClInclude Include="EscapeDlg.h" />
     <ClInclude Include="framework.h" />
@@ -191,6 +192,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CPictureDlg.cpp" />
     <ClCompile Include="Escape.cpp" />
     <ClCompile Include="EscapeDlg.cpp" />
     <ClCompile Include="pch.cpp">
@@ -204,9 +206,16 @@
     <ResourceCompile Include="Escape.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="resource.hm" />
     <None Include="res\Escape.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\downloads\bitmap2.bmp" />
+    <Image Include="..\..\Downloads\EscapePicture.BMP" />
+    <Image Include="..\..\Downloads\EscapePicture1.BMP" />
+    <Image Include="..\..\Downloads\EscapePicture2.BMP" />
+    <Image Include="..\..\Downloads\EscapePicture3.BMP" />
+    <Image Include="..\..\Downloads\img1.jpg" />
     <Image Include="res\Escape.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
