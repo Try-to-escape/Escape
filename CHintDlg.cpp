@@ -12,7 +12,7 @@
 IMPLEMENT_DYNAMIC(CHintDlg, CDialogEx)
 
 CHintDlg::CHintDlg(CWnd* pParent /*=nullptr*/)
-	: CDialogEx(IDD_DIALOG_HINT, pParent)
+	: CDialogEx(IDD_HintDlg, pParent)
 {
 
 }
