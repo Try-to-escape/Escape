@@ -89,6 +89,9 @@ END_MESSAGE_MAP()
 
 BOOL CEscapeDlg::OnInitDialog()
 {
+	CPictureDlg dlg;
+	dlg.DoModal();
+
 	CDialogEx::OnInitDialog();
 
 	m_fontTimer.CreatePointFont(200, L"굴림");
