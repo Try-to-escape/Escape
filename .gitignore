@@ -25,3 +25,5 @@ Win32/
 *.ncb
 *.sbr
 *.bsc
+/.vs/Escape/v17/Browse.VC.db
+/.vs/Escape/v17/Browse.VC.db-wal
