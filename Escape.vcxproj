@@ -183,6 +183,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CFailDlg.h" />
     <ClInclude Include="CPictureDlg.h" />
     <ClInclude Include="Escape.h" />
     <ClInclude Include="EscapeDlg.h" />
@@ -192,6 +193,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CFailDlg.cpp" />
     <ClCompile Include="CPictureDlg.cpp" />
     <ClCompile Include="Escape.cpp" />
     <ClCompile Include="EscapeDlg.cpp" />
@@ -211,6 +213,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\downloads\bitmap2.bmp" />
+    <Image Include="..\..\Downloads\EscapeFail.BMP" />
     <Image Include="..\..\Downloads\EscapePicture.BMP" />
     <Image Include="..\..\Downloads\EscapePicture1.BMP" />
     <Image Include="..\..\Downloads\EscapePicture2.BMP" />

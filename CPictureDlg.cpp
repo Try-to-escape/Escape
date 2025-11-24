@@ -5,7 +5,7 @@
 #include "Escape.h"
 #include "afxdialogex.h"
 #include "CPictureDlg.h"
-//#include "CFailDlg.h"
+#include "CFailDlg.h"
 
 // CPictureDlg 대화 상자
 
@@ -99,6 +99,7 @@ void CPictureDlg::OnClickedRadioFail2()
 void CPictureDlg::OnClickedButtonSubmit()
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	CFailDlg failDlg;
 	switch (m_selectedPictureRadio) {
 	case 1:
 		m_bmpPicture.DeleteObject();
@@ -107,14 +108,14 @@ void CPictureDlg::OnClickedButtonSubmit()
 	case 2:
 		m_bmpPicture.DeleteObject();
 		m_bmpPicture.LoadBitmap(IDB_BITMAP_PICTURE2);
-		/*CFailDlg failDlg;
-		failDlg.DoModal();*/
+		
+		failDlg.DoModal();
 		break;
 	case 3:
 		m_bmpPicture.DeleteObject();
 		m_bmpPicture.LoadBitmap(IDB_BITMAP_PICTURE3);
-		/*CFailDlg failDlg;
-		failDlg.DoModal();*/
+
+		failDlg.DoModal();
 		break;
 	}
 
