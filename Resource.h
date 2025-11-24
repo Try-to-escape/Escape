@@ -2,12 +2,19 @@
 // Microsoft Visual C++에서 생성한 포함 파일입니다.
 // Escape.rc에서 사용되고 있습니다.
 //
+
+#define IDD_DIALOG_BOOK                 131
+#define IDD_DIALOG_BOOKLIST             132
+#define IDD_DIALOG_LIGHT                134
+#define IDC_BUTTON_WBOOK                1009
+#define IDC_BUTTON_FBOOK                1010
+#define IDC_BUTTON_GO_BOOKLIST          1011
+#define IDC_BUTTON_LIGHT                1012
 #define IDM_ABOUTBOX                    0x0010
 #define IDD_ABOUTBOX                    100
 #define IDS_ABOUTBOX                    101
 #define IDD_ESCAPE_DIALOG               102
 #define IDR_MAINFRAME                   128
-#define IDD_DIALOG1                     129
 #define IDD_LockerDlg                   129
 #define IDD_HintDlg                     133
 #define IDC_EDIT1                       1000
@@ -16,7 +23,6 @@
 #define IDC_BUTTON_OK                   1001
 #define IDC_BUTTON_OUT                  1001
 #define IDC_BUTTON2                     1002
-#define IDC_BUTTON3                     1003
 #define IDC_BUTTON_TESTPAPER            1003
 #define IDC_BUTTON4                     1004
 #define IDC_BUTTON5                     1005
