@@ -4,6 +4,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+*.aps
 
 # Build results
 [Dd]ebug/
@@ -25,7 +26,3 @@ Win32/
 *.ncb
 *.sbr
 *.bsc
-/.vs/Escape/v17/Browse.VC.db
-/.vs/Escape/v17/Browse.VC.opendb
-/.vs/Escape/v17/Browse.VC.db-shm
-/.vs/Escape/v17/Browse.VC.db-wal

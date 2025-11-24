@@ -33,6 +33,18 @@
     <ClInclude Include="pch.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="CBookDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CBookListDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CLightDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CLockerDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
     <ClInclude Include="CStartDlg.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -48,6 +60,18 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CBookDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CBookListDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CLightDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CLockerDlg.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="CStartDlg.cpp">
@@ -69,6 +93,9 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\Escape.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\locker.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="res\bitmap1.bmp">

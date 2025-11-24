@@ -21,19 +21,48 @@
 
 // 응용 프로그램 정보에 사용되는 CAboutDlg 대화 상자입니다.
 
+class CAboutDlg : public CDialogEx
+{
+public:
+	CAboutDlg();
+
+	// 대화 상자 데이터입니다.
+#ifdef AFX_DESIGN_TIME
+	enum { IDD = IDD_ABOUTBOX };
+#endif
+
+protected:
+	virtual void DoDataExchange(CDataExchange *pDX);    // DDX/DDV 지원입니다.
+
+	// 구현입니다.
+protected:
+	DECLARE_MESSAGE_MAP()
+};
+
+CAboutDlg::CAboutDlg() : CDialogEx(IDD_ABOUTBOX)
+{
+}
+
+void CAboutDlg::DoDataExchange(CDataExchange *pDX)
+{
+	CDialogEx::DoDataExchange(pDX);
+}
+
+BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
+END_MESSAGE_MAP()
 
 
 // CEscapeDlg 대화 상자
 
 
 
-CEscapeDlg::CEscapeDlg(CWnd* pParent /*=nullptr*/)
+CEscapeDlg::CEscapeDlg(CWnd *pParent /*=nullptr*/)
 	: CDialogEx(IDD_ESCAPE_DIALOG, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
-void CEscapeDlg::DoDataExchange(CDataExchange* pDX)
+void CEscapeDlg::DoDataExchange(CDataExchange *pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
 	//DDX_Control(pDX, IDC_BOOKLIST, m_boollist);
@@ -67,8 +96,20 @@ BOOL CEscapeDlg::OnInitDialog()
 	GetDlgItem(IDC_STATIC_TIMER)->SetFont(&m_fontTimer);
 	SetTimer(1, 1000, NULL);
 
+	CMenu *pSysMenu = GetSystemMenu(FALSE);
+	if ( pSysMenu != nullptr )
 	if (!m_bmpBackground.LoadBitmap(IDB_BACKGROUND))
 	{
+		BOOL bNameValid;
+		CString strAboutMenu;
+		bNameValid = strAboutMenu.LoadString(IDS_ABOUTBOX);
+		ASSERT(bNameValid);
+		if ( !strAboutMenu.IsEmpty() )
+		{
+			pSysMenu->AppendMenu(MF_SEPARATOR);
+			pSysMenu->AppendMenu(MF_STRING, IDM_ABOUTBOX, strAboutMenu);
+		}
+	}
 		TRACE(_T("ERROR: Background bitmap (IDB_BACKGROUND) load failed!\n"));
 	}
 	if (IsIconic())
@@ -111,7 +152,15 @@ BOOL CEscapeDlg::OnInitDialog()
 
 void CEscapeDlg::OnSysCommand(UINT nID, LPARAM lParam)
 {
-	CDialogEx::OnSysCommand(nID, lParam);
+	if ( (nID & 0xFFF0) == IDM_ABOUTBOX )
+	{
+		CAboutDlg dlgAbout;
+		dlgAbout.DoModal();
+	}
+	else
+	{
+		CDialogEx::OnSysCommand(nID, lParam);
+	}
 }
 
 // 대화 상자에 최소화 단추를 추가할 경우 아이콘을 그리려면
@@ -120,7 +169,7 @@ void CEscapeDlg::OnSysCommand(UINT nID, LPARAM lParam)
 
 void CEscapeDlg::OnPaint()
 {
-	if (IsIconic())
+	if ( IsIconic() )
 	{
 		CPaintDC dc(this);
 

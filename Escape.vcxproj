@@ -185,6 +185,7 @@
   <ItemGroup>
     <ClInclude Include="CEXPLAIN.h" />
     <ClInclude Include="CStartDlg.h" />
+    <ClInclude Include="CLockerDlg.h" />
     <ClInclude Include="Escape.h" />
     <ClInclude Include="EscapeDlg.h" />
     <ClInclude Include="framework.h" />
@@ -193,6 +194,11 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CBookDlg.cpp" />
+    <ClCompile Include="CBookListDlg.cpp" />
+    <ClCompile Include="CLightDlg.cpp" />
+    <ClCompile Include="CHintDlg.cpp" />
+    <ClCompile Include="CLockerDlg.cpp" />
     <ClCompile Include="CEXPLAIN.cpp" />
     <ClCompile Include="CStartDlg.cpp" />
     <ClCompile Include="Escape.cpp" />
@@ -211,6 +217,7 @@
     <None Include="res\Escape.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\locker.bmp" />
     <Image Include="..\..\..\downloads\bitmap3.bmp" />
     <Image Include="..\..\..\Downloads\CBookListDlg.bmp" />
     <Image Include="..\..\..\Downloads\EscapeMainPageHide.BMP" />
