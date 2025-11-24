@@ -183,6 +183,8 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CEXPLAIN.h" />
+    <ClInclude Include="CStartDlg.h" />
     <ClInclude Include="CLockerDlg.h" />
     <ClInclude Include="CFailDlg.h" />
     <ClInclude Include="CPictureDlg.h" />
@@ -199,6 +201,8 @@
     <ClCompile Include="CLightDlg.cpp" />
     <ClCompile Include="CHintDlg.cpp" />
     <ClCompile Include="CLockerDlg.cpp" />
+    <ClCompile Include="CEXPLAIN.cpp" />
+    <ClCompile Include="CStartDlg.cpp" />
     <ClCompile Include="CFailDlg.cpp" />
     <ClCompile Include="CPictureDlg.cpp" />
     <ClCompile Include="Escape.cpp" />
@@ -219,6 +223,18 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\locker.bmp" />
+    <Image Include="..\..\..\downloads\bitmap3.bmp" />
+    <Image Include="..\..\..\Downloads\CBookListDlg.bmp" />
+    <Image Include="..\..\..\Downloads\EscapeMainPageHide.BMP" />
+    <Image Include="..\..\과제\EscapeMainPage.BMP\EscapeexplainPage.bmp" />
+    <Image Include="..\..\과제\EscapeMainPage.BMP\EscapeMainPage.BMP" />
+    <Image Include="..\..\과제\EscapeMainPage.BMP\EscapeStartPage.bmp" />
+    <Image Include="..\..\과제\새 폴더\CBookListDlg.bmp" />
+    <Image Include="..\..\과제\새 폴더\금고.bmp" />
+    <Image Include="..\..\과제\새 폴더\스탠드.bmp" />
+    <Image Include="..\..\과제\새 폴더\액자.bmp" />
+    <Image Include="res\bitmap1.bmp" />
+    <Image Include="res\bitmap2.bmp" />
     <Image Include="..\..\downloads\bitmap2.bmp" />
     <Image Include="..\..\Downloads\EscapeFail.BMP" />
     <Image Include="..\..\Downloads\EscapePicture.BMP" />

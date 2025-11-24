@@ -7,7 +7,12 @@
 #include "Escape.h"
 #include "EscapeDlg.h"
 #include "afxdialogex.h"
+/*
+#include "CBookListDlg.h"
+#include "CLightDlg.h"
+#include "CLockerDlg.h"
 #include "CPictureDlg.h"
+*/
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -60,12 +65,23 @@ CEscapeDlg::CEscapeDlg(CWnd *pParent /*=nullptr*/)
 void CEscapeDlg::DoDataExchange(CDataExchange *pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	//DDX_Control(pDX, IDC_BOOKLIST, m_boollist);
 }
 
 BEGIN_MESSAGE_MAP(CEscapeDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	//ON_BN_CLICKED(IDC_BUTTON_BOOKLIST, &CEscapeDlg::OnBnClickedButtonBooklist)
+	//ON_BN_CLICKED(IDC_BUTTON_PICTURE, &CEscapeDlg::OnBnClickedButtonPicture)
+	//ON_BN_CLICKED(IDC_BUTTON_LOCKER, &CEscapeDlg::OnBnClickedButtonLocker)
+	//ON_BN_CLICKED(IDC_BUTTON_STAND, &CEscapeDlg::OnBnClickedButtonStand)
+	ON_WM_LBUTTONDBLCLK()
+	ON_WM_MOUSEMOVE()
+	ON_WM_LBUTTONDOWN()
+	ON_BN_CLICKED(IDC_HIDE, &CEscapeDlg::OnBnClickedHide)
+	ON_BN_CLICKED(IDC_OUT, &CEscapeDlg::OnBnClickedOut)
+	ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 
@@ -78,14 +94,14 @@ BOOL CEscapeDlg::OnInitDialog()
 
 	CDialogEx::OnInitDialog();
 
-	// 시스템 메뉴에 "정보..." 메뉴 항목을 추가합니다.
+	m_fontTimer.CreatePointFont(200, L"굴림");
 
-	// IDM_ABOUTBOX는 시스템 명령 범위에 있어야 합니다.
-	ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
-	ASSERT(IDM_ABOUTBOX < 0xF000);
+	GetDlgItem(IDC_STATIC_TIMER)->SetFont(&m_fontTimer);
+	SetTimer(1, 1000, NULL);
 
 	CMenu *pSysMenu = GetSystemMenu(FALSE);
 	if ( pSysMenu != nullptr )
+	if (!m_bmpBackground.LoadBitmap(IDB_BACKGROUND))
 	{
 		BOOL bNameValid;
 		CString strAboutMenu;
@@ -97,15 +113,44 @@ BOOL CEscapeDlg::OnInitDialog()
 			pSysMenu->AppendMenu(MF_STRING, IDM_ABOUTBOX, strAboutMenu);
 		}
 	}
+		TRACE(_T("ERROR: Background bitmap (IDB_BACKGROUND) load failed!\n"));
+	}
+	if (IsIconic())
+	{
+		CPaintDC dc(this);
 
-	// 이 대화 상자의 아이콘을 설정합니다.  응용 프로그램의 주 창이 대화 상자가 아닐 경우에는
-	//  프레임워크가 이 작업을 자동으로 수행합니다.
-	SetIcon(m_hIcon, TRUE);			// 큰 아이콘을 설정합니다.
-	SetIcon(m_hIcon, FALSE);		// 작은 아이콘을 설정합니다.
+		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
 
-	// TODO: 여기에 추가 초기화 작업을 추가합니다.
+		int cxIcon = GetSystemMetrics(SM_CXICON);
+		int cyIcon = GetSystemMetrics(SM_CYICON);
 
-	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.
+		CRect rect;
+		GetClientRect(&rect);
+		int x = (rect.Width() - cxIcon + 1) / 2;
+		int y = (rect.Height() - cyIcon + 1) / 2;
+
+		dc.DrawIcon(x, y, m_hIcon);
+		return true;
+	}
+
+	// 여기부터 배경 비트맵 그리기
+	CPaintDC dc(this);
+
+	BITMAP bitmap;
+	m_bmpBackground.GetBitmap(&bitmap);
+
+	CDC memDC;
+	memDC.CreateCompatibleDC(&dc);
+	CBitmap* pOldBitmap = memDC.SelectObject(&m_bmpBackground);
+
+	CRect rect;
+	GetClientRect(&rect);
+
+	dc.StretchBlt(0, 0, rect.Width(), rect.Height(),
+		&memDC, 0, 0, bitmap.bmWidth, bitmap.bmHeight,
+		SRCCOPY);
+
+	memDC.SelectObject(pOldBitmap);
 }
 
 void CEscapeDlg::OnSysCommand(UINT nID, LPARAM lParam)
@@ -129,30 +174,185 @@ void CEscapeDlg::OnPaint()
 {
 	if ( IsIconic() )
 	{
-		CPaintDC dc(this); // 그리기를 위한 디바이스 컨텍스트입니다.
+		CPaintDC dc(this);
 
 		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
 
-		// 클라이언트 사각형에서 아이콘을 가운데에 맞춥니다.
 		int cxIcon = GetSystemMetrics(SM_CXICON);
 		int cyIcon = GetSystemMetrics(SM_CYICON);
+
 		CRect rect;
 		GetClientRect(&rect);
 		int x = (rect.Width() - cxIcon + 1) / 2;
 		int y = (rect.Height() - cyIcon + 1) / 2;
 
-		// 아이콘을 그립니다.
 		dc.DrawIcon(x, y, m_hIcon);
+		return;
 	}
-	else
-	{
-		CDialogEx::OnPaint();
-	}
-}
 
+	// 배경 그리기
+	CPaintDC dc(this);
+
+	if (m_bmpBackground.GetSafeHandle() == NULL)
+		return;
+
+	BITMAP bitmap;
+	m_bmpBackground.GetBitmap(&bitmap);
+
+	CDC memDC;
+	memDC.CreateCompatibleDC(&dc);
+	CBitmap* pOldBitmap = memDC.SelectObject(&m_bmpBackground);
+
+	CRect rect;
+	GetClientRect(&rect);
+
+	dc.StretchBlt(
+		0, 0, rect.Width(), rect.Height(),
+		&memDC, 0, 0,
+		bitmap.bmWidth, bitmap.bmHeight,
+		SRCCOPY
+	);
+
+	memDC.SelectObject(pOldBitmap);
+}
 // 사용자가 최소화된 창을 끄는 동안에 커서가 표시되도록 시스템에서
 //  이 함수를 호출합니다.
 HCURSOR CEscapeDlg::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
+}
+
+
+/*
+void CEscapeDlg::OnBnClickedButtonBooklist()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	CBookListDlg dlg;
+	dlg.DoModal();
+}
+
+void CEscapeDlg::OnBnClickedButtonPicture()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	CPictureDlg dlg;
+	dlg.DoModal();
+}
+
+void CEscapeDlg::OnBnClickedButtonLocker()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	CLockerDlg dlg;
+	dlg.DoModal();
+}
+
+void CEscapeDlg::OnBnClickedButtonStand()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	CLightDlg dlg;
+	dlg.DoModal();
+}
+*/
+
+void CEscapeDlg::OnMouseMove(UINT nFlags, CPoint point)
+{
+	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
+	/*
+	CString msg;
+	msg.Format(_T("X: %d, Y: %d"), point.x, point.y);
+
+	SetDlgItemText(IDC_STATIC1, msg);
+	CDialogEx::OnMouseMove(nFlags, point);*/
+}
+
+void CEscapeDlg::OnLButtonDown(UINT nFlags, CPoint point)
+{
+	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
+
+	CRect bookList(0, 0, 755, 405);
+	CRect laptop(114, 493, 605, 776);      // 노트북
+	CRect light(783, 417, 971, 793);       // 전등
+	CRect safe(654, 1058, 910, 1205);      // 금고
+	CRect frame(1445, 39, 1762, 406);      // 액자
+
+
+
+	if (bookList.PtInRect(point))
+	{
+
+		MessageBox(L"책장");
+
+		// 여기부터 다이얼로그 띄우는 코드 (주석 처리)
+		/*
+		CBookListDlg dlg;
+		dlg.DoModal();
+		*/
+	}
+	else if (laptop.PtInRect(point))
+	{
+		MessageBox(L"노트북");
+	}
+	else if (light.PtInRect(point))
+	{
+		MessageBox(L"전등");
+	}
+	else if (safe.PtInRect(point))
+	{
+		MessageBox(L"금고");
+	}
+	else if (frame.PtInRect(point))
+	{
+		MessageBox(L"액자");
+	}
+
+
+	CDialogEx::OnLButtonDown(nFlags, point);
+}
+
+void CEscapeDlg::OnBnClickedHide()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	m_bmpBackground.DeleteObject();
+
+	if (!m_bmpBackground.LoadBitmap(IDB_HIDE))
+	{
+		MessageBox(L"IDB_HIDE 비트맵 로드 실패!");
+		return;
+	}
+
+	Invalidate(FALSE);
+
+}
+
+void CEscapeDlg::OnBnClickedOut()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	m_bmpBackground.DeleteObject();
+
+	if (!m_bmpBackground.LoadBitmap(IDB_BACKGROUND))
+	{
+		MessageBox(L"IDB_HIDE 비트맵 로드 실패!");
+		return;
+	}
+
+	Invalidate(FALSE);
+}
+
+void CEscapeDlg::OnTimer(UINT_PTR nIDEvent)
+{
+	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
+
+	if (nIDEvent == 1)
+	{
+		m_seconds++;
+
+		int minutes = m_seconds / 60;
+		int seconds = m_seconds % 60;
+
+		CString text;
+		text.Format(L"%02d:%02d", minutes, seconds);
+
+		SetDlgItemText(IDC_STATIC_TIMER, text);
+	}
+
+	CDialogEx::OnTimer(nIDEvent);
 }

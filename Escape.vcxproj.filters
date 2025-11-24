@@ -45,6 +45,12 @@
     <ClInclude Include="CLockerDlg.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="CStartDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CEXPLAIN.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
     <ClInclude Include="CPictureDlg.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -74,6 +80,12 @@
     <ClCompile Include="CLockerDlg.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="CStartDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CEXPLAIN.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
     <ClCompile Include="CPictureDlg.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -99,6 +111,42 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="..\locker.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\bitmap1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="res\bitmap2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\CBookListDlg.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\..\..\downloads\bitmap3.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\..\과제\새 폴더\CBookListDlg.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\..\과제\새 폴더\스탠드.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\..\과제\새 폴더\액자.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\..\과제\새 폴더\금고.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\..\과제\EscapeMainPage.BMP\EscapeMainPage.BMP">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\..\과제\EscapeMainPage.BMP\EscapeStartPage.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\..\과제\EscapeMainPage.BMP\EscapeexplainPage.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\EscapeMainPageHide.BMP">
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="..\..\Downloads\img1.jpg">
