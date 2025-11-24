@@ -43,8 +43,7 @@ void CLockerDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CLockerDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_COMMAND_RANGE(101, 109, &CLockerDlg::OnBnClickedButton)
-//	ON_WM_TIMER()
-ON_BN_CLICKED(IDC_BUTTON1, &CLockerDlg::OnBnClickedButton1)
+	ON_BN_CLICKED(IDC_BUTTON_OK, &CLockerDlg::OnBnClickedButtonOk)
 END_MESSAGE_MAP()
 
 
@@ -57,15 +56,14 @@ BOOL CLockerDlg::OnInitDialog()
 	//1. 이미지들 불러오기
 	m_imgLocker.Load(L"res/image/locker.bmp");	//기본 금고 닫힘
 	m_imgLockerOpen.Load(L"res/image/lockerOpen.bmp"); //금고 열림
-	m_imgLockerAlert.Load(L"res/image/lockerAlert.bmp"); //금고 경보
-	m_imgTestPaper.Load(L"res/image/testPaper.bmp"); //시험지
+	m_imgTestPaper.Load(L"res/image/EscapeEnding1.bmp"); //시험지
 
 	//2. 초기 화면 설정(닫힌 금고)
 	m_pCurrentImage = &m_imgLocker;
 	Invalidate();
 
 	//3. 암호 정답 설정
-	m_strPassword = "1234";
+	m_strPassword = "1572";
 
 	return TRUE;
 	
@@ -122,12 +120,11 @@ void CLockerDlg::OnBnClickedButton(UINT nID)
 			m_pCurrentImage = &m_imgLockerOpen;
 			Invalidate();
 			n_btnOk.ShowWindow(SW_SHOW);
-			// 3) 시험지 확대 화면, 확인 버튼(클릭시 대화상자 닫힘)
 		}
-		//2. 비밀번호 불일치시->실패화면(금고 경보-> 다시하기 대화상자)
+		//2. 비밀번호 불일치시->실패화면(경고 메세지, 창 닫기)
 		else {
-			m_pCurrentImage = &m_imgLockerAlert;
-			Invalidate();
+			AfxMessageBox(_T("암호 불일치, 사용자에게 메세지를 보냈습니다"), MB_OK | MB_ICONWARNING);
+			EndDialog(IDOK);
 		}
 
 		m_editInput.SetWindowText(_T(""));
@@ -137,7 +134,11 @@ void CLockerDlg::OnBnClickedButton(UINT nID)
 	}
 }
 
-void CLockerDlg::OnBnClickedButton1()
+
+void CLockerDlg::OnBnClickedButtonOk()
 {
-	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	//엔딩 출력 변수 활성화
+	AfxMessageBox(_T("시험지를 획득했다!"), MB_OK | MB_ICONWARNING);
+	EndDialog(IDOK);
+	
 }

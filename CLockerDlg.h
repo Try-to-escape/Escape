@@ -13,8 +13,6 @@ private:
 	CImage m_imgLocker;
 	// 암호 성공시 금고 열림 이미지
 	CImage m_imgLockerOpen;
-	// 암호 실패시 금고 경보 이미지
-	CImage m_imgLockerAlert;
 	// 시험지 상세 이미지
 	CImage m_imgTestPaper;
 
@@ -53,6 +51,6 @@ private:
 	// 현제 화면에 출력할 이미지 포인터
 	CImage* m_pCurrentImage;
 public:
-	afx_msg void OnBnClickedButton1();
 	CButton n_btnOk;
+	afx_msg void OnBnClickedButtonOk();
 };
