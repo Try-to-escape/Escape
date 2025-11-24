@@ -32,10 +32,20 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
 public:
-	afx_msg void OnStnClickedBooklist();
+	//afx_msg void OnStnClickedBooklist();
 	CStatic m_boollist;
-	afx_msg void OnBnClickedButtonBooklist();
-	afx_msg void OnBnClickedButtonPicture();
-	afx_msg void OnBnClickedButtonLocker();
-	afx_msg void OnBnClickedButtonStand();
+
+	//afx_msg void OnBnClickedButtonBooklist();
+	//afx_msg void OnBnClickedButtonPicture();
+	//afx_msg void OnBnClickedButtonLocker();
+	//afx_msg void OnBnClickedButtonStand();
+	
+	CBitmap m_bmpBackground;
+	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
+	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
+	afx_msg void OnBnClickedHide();
+	afx_msg void OnBnClickedOut();
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
+	int m_seconds = 0;
+	CFont m_fontTimer;
 };

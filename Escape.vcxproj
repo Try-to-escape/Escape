@@ -183,6 +183,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CEXPLAIN.h" />
     <ClInclude Include="CStartDlg.h" />
     <ClInclude Include="Escape.h" />
     <ClInclude Include="EscapeDlg.h" />
@@ -192,6 +193,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CEXPLAIN.cpp" />
     <ClCompile Include="CStartDlg.cpp" />
     <ClCompile Include="Escape.cpp" />
     <ClCompile Include="EscapeDlg.cpp" />
@@ -211,6 +213,10 @@
   <ItemGroup>
     <Image Include="..\..\..\downloads\bitmap3.bmp" />
     <Image Include="..\..\..\Downloads\CBookListDlg.bmp" />
+    <Image Include="..\..\..\Downloads\EscapeMainPageHide.BMP" />
+    <Image Include="..\..\과제\EscapeMainPage.BMP\EscapeexplainPage.bmp" />
+    <Image Include="..\..\과제\EscapeMainPage.BMP\EscapeMainPage.BMP" />
+    <Image Include="..\..\과제\EscapeMainPage.BMP\EscapeStartPage.bmp" />
     <Image Include="..\..\과제\새 폴더\CBookListDlg.bmp" />
     <Image Include="..\..\과제\새 폴더\금고.bmp" />
     <Image Include="..\..\과제\새 폴더\스탠드.bmp" />

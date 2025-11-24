@@ -36,6 +36,9 @@
     <ClInclude Include="CStartDlg.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="CEXPLAIN.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Escape.cpp">
@@ -48,6 +51,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="CStartDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CEXPLAIN.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -87,6 +93,18 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="..\..\과제\새 폴더\금고.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\..\과제\EscapeMainPage.BMP\EscapeMainPage.BMP">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\..\과제\EscapeMainPage.BMP\EscapeStartPage.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\..\과제\EscapeMainPage.BMP\EscapeexplainPage.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\EscapeMainPageHide.BMP">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>

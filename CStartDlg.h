@@ -22,5 +22,10 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
-	afx_msg void OnBnClickedButton1();
+	//afx_msg void OnBnClickedButton1();
+	virtual BOOL OnInitDialog();
+	CBitmap m_bmpStart;
+	afx_msg void OnPaint();
+	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
+	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 };
