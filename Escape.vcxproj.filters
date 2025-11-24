@@ -45,6 +45,12 @@
     <ClInclude Include="CLockerDlg.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="CPictureDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CFailDlg.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Escape.cpp">
@@ -68,6 +74,12 @@
     <ClCompile Include="CLockerDlg.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="CPictureDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CFailDlg.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Escape.rc">
@@ -78,12 +90,36 @@
     <None Include="res\Escape.rc2">
       <Filter>리소스 파일</Filter>
     </None>
+    <None Include="resource.hm">
+      <Filter>헤더 파일</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\Escape.ico">
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="..\locker.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\..\Downloads\img1.jpg">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\..\downloads\bitmap2.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\..\Downloads\EscapePicture.BMP">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\..\Downloads\EscapePicture1.BMP">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\..\Downloads\EscapePicture2.BMP">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\..\Downloads\EscapePicture3.BMP">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\..\Downloads\EscapeFail.BMP">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>

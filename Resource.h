@@ -30,12 +30,35 @@
 #define IDC_BUTTON7                     1007
 #define IDC_BUTTON8                     1008
 #define IDC_BUTTON9                     1009
+#define IDM_ABOUTBOX                    0x0010
+#define IDD_ABOUTBOX                    100
+#define IDS_ABOUTBOX                    101
+#define IDD_ESCAPE_DIALOG               102
+#define IDR_MAINFRAME                   128
+#define IDD_PICTURE_DIALOG              129
+#define IDB_BITMAP_PICTURE              133
+#define IDB_BITMAP_PICTURE1             134
+#define IDB_BITMAP_PICTURE2             135
+#define IDB_BITMAP_PICTURE3             136
+#define IDD_FAIL_DIALOG                 137
+#define IDB_BITMAP_FAIL                 138
+#define IDC_BUTTON_SUBMIT               1000
+#define IDC_RADIO_SUCCESS               1005
+#define IDC_RADIO_FAIL1                 1006
+#define IDC_RADIO_FAIL2                 1007
+#define IDC_BUTTON_E                    1008
+#define IDC_EXIT_BUTTON                 1008
+#define IDC_RETRY_BUTTON                1009
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        135
+#define _APS_NEXT_COMMAND_VALUE         32771
+#define _APS_NEXT_CONTROL_VALUE         1010
+#define _APS_NEXT_SYMED_VALUE           101
+#define _APS_NEXT_RESOURCE_VALUE        140
 #define _APS_NEXT_COMMAND_VALUE         32771
 #define _APS_NEXT_CONTROL_VALUE         1010
 #define _APS_NEXT_SYMED_VALUE           101
